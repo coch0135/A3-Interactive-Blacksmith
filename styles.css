@@ -72,4 +72,5 @@ footer { margin-top: 2rem; font-size: .9rem; color: #455449; }
     width: 100%;
     background-color: white;
     color: #006341;
+    border: #006341 3px solid;
 }
