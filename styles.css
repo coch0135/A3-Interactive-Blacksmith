@@ -39,3 +39,37 @@ footer { margin-top: 2rem; font-size: .9rem; color: #455449; }
 @media (max-width: 700px) { .layout { grid-template-columns: 1fr; } main { padding-top: 1.5rem; } .forge-top, .readings { padding: 1.5rem; } .message-box { margin-inline: 1.5rem; } }
 
 #forge-image { display: block; width: 100%; height: auto; max-height: 240px; object-fit: contain; margin: -1rem auto 1rem; }
+
+/* CUSTOM STYLING BEGINS HERE */
+
+/* styles buttons */
+.btn {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 10%;
+    font-weight:bold;
+}
+
+/* styles button instructions */
+.note {
+   margin-top: 0;
+   margin-bottom: 20px;
+}
+
+#add-heat {
+    width: 50%;
+    background-color: #006341;
+    color: white;
+}
+
+#make-sword {
+    width: 100%;
+    background-color: #006341;
+    color: white;
+}
+
+#reset-forge {
+    width: 100%;
+    background-color: white;
+    color: #006341;
+}

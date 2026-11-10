@@ -7,6 +7,11 @@ const $swordCount = document.getElementById("sword-count")
 const $forgeImage = document.getElementById("forge-image")
 const $forgeStatus = document.getElementById("forge-status")
 const $forgeMessage = document.getElementById("action-message")
+// Adds button variables linked to HTML IDs
+const $heatInput = document.getElementById("heat-to-add")
+const $addHeatBtn = document.getElementById("add-heat")
+const $makeSwordBtn = document.getElementById("make-sword")
+const $resetForgeBtn = document.getElementById("reset-forge")
 
 // STATE VARIABLES
 let forgeHeat = 20
@@ -57,22 +62,31 @@ function resetForge() {
     forgeHeat = 20
     swordCount = 0
     $forgeMessage.textContent = "Welcome to the forge. Add heat to begin."
+    $heatInput.value = 0
     updateForge()
 }
 
-function heatForge(amount) {
-    forgeHeat = forgeHeat + amount
-    if (forgeHeat > 100) {
-        forgeHeat = 100
-        $forgeMessage.textContent = "Fire is already hot."
+function heatForge() {
+    // stores the heatinput value converted to a number as a variable
+    let inputValue = Number($heatInput.value)
+    // adds guardrail against adding negative numbers in the input field
+    if (inputValue >= 1) {
+        forgeHeat = forgeHeat + inputValue
+        if (forgeHeat > 100) {
+            forgeHeat = 100
+            $forgeMessage.textContent = "Fire is already hot."
+        }
+        else if (forgeHeat < 30) {
+            $forgeMessage.textContent = "Fire is still not hot enough."
+        }
+        else {
+            $forgeMessage.textContent = "Fire is hot enough to forge."
+        }
     }
-    else if (forgeHeat < 30) {
-        $forgeMessage.textContent = "Fire is still not hot enough."
-    }
-    else {
-        $forgeMessage.textContent = "Fire is hot enough to forge."
-    }
+    else {$forgeMessage.textContent = "Please enter a positive whole number."}
+
     updateForge()
+    $heatInput.value = 0
 }
 
 function makeSword() {
@@ -89,5 +103,11 @@ function makeSword() {
     updateForge()
 }
 
-// calls the function to reset the game
+// resets the game
 resetForge()
+
+// EVENT LISTENERS
+
+$resetForgeBtn.addEventListener("click", resetForge)
+$makeSwordBtn.addEventListener("click", makeSword)
+$addHeatBtn.addEventListener("click", heatForge)

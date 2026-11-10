@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,8 +8,11 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header><p>MTM6302 · Assignment 1</p><span>Blacksmith</span></header>
+  <header>
+    <p>MTM6302 · Assignment 1</p><span>Blacksmith</span>
+  </header>
   <main>
     <p class="eyebrow">Your workshop</p>
     <h1>The Tiny Forge</h1>
@@ -24,8 +28,14 @@
           <p id="forge-status" class="status">Too cold</p>
         </div>
         <div class="readings">
-          <div><h3>Heat</h3><p><span id="heat-value">20</span><span class="unit"> / 100</span></p></div>
-          <div><h3>Swords made</h3><p id="sword-count">0</p></div>
+          <div>
+            <h3>Heat</h3>
+            <p><span id="heat-value">20</span><span class="unit"> / 100</span></p>
+          </div>
+          <div>
+            <h3>Swords made</h3>
+            <p id="sword-count">0</p>
+          </div>
         </div>
         <div class="message-box">
           <h3>Workshop log</h3>
@@ -34,14 +44,25 @@
       </section>
       <aside aria-label="Game instructions">
         <section class="panel">
-          <h2>Console commands</h2>
-          <p>Write each function in <code>script.js</code>, then try it in the browser console.</p>
-          <dl>
-            <dt><code>heatForge(20)</code></dt><dd>Add 20 heat, up to 100.</dd>
-            <dt><code>makeSword()</code></dt><dd>Use 30 heat to make one sword.</dd>
-            <dt><code>resetForge()</code></dt><dd>Return to 20 heat and zero swords.</dd>
-          </dl>
-          <p class="note">Commands work once you have built them. Refreshing resets the game.</p>
+          <h2>Forge Controls</h2>
+          
+          <div>
+            <h3>Heat to add</h3>
+            <div>
+              <input type="number" name="heat-to-add" id="heat-to-add" min="1" step="1">
+              <button class="btn" id="add-heat">Add Heat</button>
+            </div>
+            <p class="note">Enter a positive whole number. Maximum forge heat: 100</p>
+          </div>
+          <div> <!-- contains the button and the note -->
+            <button class="btn" id="make-sword">Make sword</button>
+            <p class="note">Use 30 heat to make one sword.</p>
+          </div>
+          <div> <!-- contains the button and the note -->
+            <button class="btn" id="reset-forge">Reset forge</button>
+            <p class="note">Return to 20 heat and 0 swords.</p>
+          </div>
+
         </section>
         <section class="panel">
           <h2>Know your forge</h2>
@@ -57,4 +78,5 @@
     <footer>Call an action → change the state → update the page.</footer>
   </main>
 </body>
+
 </html>
